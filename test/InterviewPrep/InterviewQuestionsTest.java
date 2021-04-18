@@ -7,12 +7,11 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
-import InterviewPrep.InterviewQuestions;
 
 
 @RunWith(Suite.class)
 @SuiteClasses({})
-public class AllTests {
+public class InterviewQuestionsTest {
 	private InterviewQuestions questions = new InterviewQuestions();
 	
     @Test
@@ -80,9 +79,9 @@ public class AllTests {
     public void AnagramTestPoz()
     {
         String test = "this is a test";
-        String experimental = questions.reverse(test);
+        String experimental = questions.reverse(test.toCharArray()).toString();
 
-        assertTrue(questions.anagram(test, experimental), "Anagram Not Detected!? WTF?!");
+        assertTrue(questions.anagram(test, experimental), "Anagram Not Detected!?");
     }
 
     @Test
@@ -91,7 +90,7 @@ public class AllTests {
         String test = "this is a test";
         String experimental = "tset a si sitt";
 
-        assertFalse(questions.anagram(test, experimental), "Anagram Not Detected!? WTF?!");
+        assertFalse(questions.anagram(test, experimental), "Anagram Not Detected!?");
     }
     
     @Test
@@ -121,17 +120,10 @@ public class AllTests {
     	assertTrue(questions.gcd(first,  second) == 6, "GCD Test Completed!");
     }
     
-    //@Test(expected = IllegalArgumentException.class)
     @Test
     public void CDWEmptyString() {
     	String snowing = "";
-    	//HashMap<String, Integer> words = new HashMap<String, Integer>();    	
-//    	try {
-//    		HashMap<String, Integer> words = questions.CountDuplicateWords(snowing);
-//    	}
-//    	catch (IllegalArgumentException ex) {
-//    		assertTrue(ex.getMessage() == "String param empty? Check again?");
-//    	}   
+  
     	assertThrows(IllegalArgumentException.class,
                 ()->{
                 //do whatever you want to do here
@@ -142,15 +134,7 @@ public class AllTests {
     @Test
     public void CDWOnlySpaces() {
     	String snowing = "                                               ";
-    	
-    	//HashMap<String, Integer> words = new HashMap<String, Integer>();    	
-/*    	try {
-    		HashMap<String, Integer> words = questions.CountDuplicateWords(snowing);
-    	}
-    	catch (IllegalArgumentException ex) {
-    		assertTrue(ex.getMessage() == "String param empty? Check again?");
-    	} */
- 
+
     	assertThrows(IllegalArgumentException.class,
                 ()->{
                 //do whatever you want to do here
