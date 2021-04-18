@@ -21,7 +21,7 @@ public class ClockTimeAngle {
         }
     }
 
-    // if we want to be pendantic we can do some fancier math about the hour-arm and based off the minutes
+    // if we want to be pedantic we can do some fancier math about the hour-arm and based off the minutes
     // determine what fifth of the hour its in and then calculate the angle from that. That can be v2.
     public int getAngleHours(int Hours) {
         if (12 == Hours) { return 0; }
@@ -33,11 +33,8 @@ public class ClockTimeAngle {
     // to calculate for where in that Hour, the Minutes angle is. What fifth of the circle is it located?
     //
     // if each minute is 6 degrees, we can calculate what portion of 30 degrees the hour-hand is during
-    // an hour. Insted of locking hard to the hour itself, this gives us more precision.
-    //
-    // bug: unused variables and this is never called, need to validate.
+    // an hour. Instead of locking hard to the hour itself, this gives us more precision.
     public int getAngleHoursPrecise(int Hours, int Minutes) {
-        int hoursAngle = getAngleHours(Hours);
         int minutesAngle = getAngleMinutes(Minutes);
         int minutesPercent = 0;
 
@@ -48,6 +45,7 @@ public class ClockTimeAngle {
         }
     }
 
+    // I was feeling like noodling around so I added this. 
     public boolean calcNinetyDegrees(int Hours, int Minutes) {
         int degrees = getAngleHours(Hours) - getAngleMinutes(Minutes);
 
